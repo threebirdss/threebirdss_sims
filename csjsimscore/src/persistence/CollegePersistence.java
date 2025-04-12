@@ -34,14 +34,14 @@ public class CollegePersistence implements ICollegePersistence {
     @Override
     public List<College> getAll() throws SQLException {
         List<College> colleges = new ArrayList<College>();
-        String sql = "Select * from college Order By name ASC";
+        String sql = "Select * from COLLEGE Order By name ASC";
         Connection conn = DbConnection.getConnection();
         PreparedStatement stmt = conn.prepareStatement(sql);
         ResultSet rslt = stmt.executeQuery();
         while (rslt.next()) {
             College college = new College();
-            college.setId(rslt.getInt("id"));
-            college.setName(rslt.getString("name"));
+            college.setId(rslt.getInt("ID"));
+            college.setName(rslt.getString("NAME"));
             colleges.add(college);
         }
 
